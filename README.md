@@ -19,3 +19,14 @@
 - 注意1个电话号码只能属于一个用户
 
 ## 项目结构
+Student information system/
+├── README.md # 项目说明文档
+├── .gitignore # Git忽略规则
+├── main.c # 主程序（菜单和调用）
+├── student.h # 头文件（结构体定义和函数声明）
+├── add_student.c # 添加学生功能
+├── delete_student.c # 删除学生功能
+── modify_student.c # 修改学生功能
+├── search_student.c # 搜索学生功能
+├── display_student.c # 显示学生功能
+└── file_operation.c # 文件操作功能
