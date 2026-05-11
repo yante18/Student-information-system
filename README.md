@@ -19,14 +19,41 @@
 - 注意1个电话号码只能属于一个用户
 
 ## 项目结构
+
+```
 Student information system/
-├── README.md # 项目说明文档
-├── .gitignore # Git忽略规则
-├── main.c # 主程序（菜单和调用）
-├── student.h # 头文件（结构体定义和函数声明）
-├── add_student.c # 添加学生功能
-├── delete_student.c # 删除学生功能
-── modify_student.c # 修改学生功能
-├── search_student.c # 搜索学生功能
-├── display_student.c # 显示学生功能
-└── file_operation.c # 文件操作功能
+├── README.md              # 项目说明文档
+├── .gitignore             # Git忽略规则
+├── main.c                 # 主程序（菜单和调用）
+├── student.h              # 头文件（结构体定义和函数声明）
+├── add_student.c          # 添加学生功能
+├── delete_student.c       # 删除学生功能
+├── modify_student.c       # 修改学生功能
+├── search_student.c       # 搜索学生功能
+├── display_student.c      # 显示学生功能
+└── file_operation.c       # 文件操作功能
+```
+
+## 编译与运行
+
+### 编译
+
+```bash
+gcc -o student_system.exe main.c add_student.c delete_student.c modify_student.c search_student.c display_student.c file_operation.c -std=c99
+```
+
+### 运行
+
+```bash
+./student_system.exe
+```
+
+## 技术栈
+
+- **语言**: C (C99 标准)
+- **编译器**: GCC
+- **数据存储**: 文本文件 (.txt)
+
+## 作者
+
+yante18 - C语言课程设计作业
