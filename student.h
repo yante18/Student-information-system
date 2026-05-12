@@ -7,42 +7,50 @@
 
 // ===== 常量定义 =====
 #define MAX_NAME_LENGTH 50
-#define MAX_STUDENTS 100
-#define DATA_FILE "students.txt"
+#define MAX_PHONE_LENGTH 15
+#define MAX_EMAIL_LENGTH 50
+#define DATA_FILE "student.txt"
 
-// ===== 结构体定义 =====
+// ===== 链表节点结构体 =====
 
 // 学生信息结构体
-typedef struct {
-    int id;                          // 学号
+typedef struct Student {                          
     char name[MAX_NAME_LENGTH];      // 姓名
-    int age;                         // 年龄
-    char gender[10];                 // 性别
-    float score;                     // 成绩
+    char origin[MAX_NAME_LENGTH];    // 籍贯
+    char phone1[MAX_PHONE_LENGTH];   // 电话号码1
+    char phone2[MAX_PHONE_LENGTH];   // 电话号码2
+    char email[MAX_EMAIL_LENGTH];    // 电子邮箱
+    struct Student *next;            // 指向下一个节点的指针
 } Student;
 
-// 学生列表结构体
+// 链表头指针
 typedef struct {
-    Student students[MAX_STUDENTS];  // 学生数组
-    int count;                        // 当前学生数量
+    Student *head;    // 链表头节点
+    int count;        // 学生数量
 } StudentList;
 
 // ===== 函数声明 =====
 
-// 初始化学生列表
+// 初始化链表
 void initStudentList(StudentList *list);
 
-// 添加学生
-int addStudent(StudentList *list, int id, const char *name, int age, const char *gender, float score);
+// 创建新节点
+Student* createNode(const char *name, const char *origin, 
+                    const char *phone1, const char *phone2, const char *email);
+
+// 添加学生（尾插法）
+int addStudent(StudentList *list, const char *name, const char *origin, 
+               const char *phone1, const char *phone2, const char *email);
 
 // 删除学生
-int deleteStudent(StudentList *list, int id);
+int deleteStudent(StudentList *list, const char *name);
 
 // 修改学生信息
-int modifyStudent(StudentList *list, int id, const char *name, int age, const char *gender, float score);
+int modifyStudent(StudentList *list, const char *name, const char *newOrigin, 
+                  const char *newPhone1, const char *newPhone2, const char *newEmail);
 
 // 搜索学生
-Student* searchStudent(StudentList *list, int id);
+Student* searchStudent(StudentList *list, const char *name);
 
 // 显示所有学生
 void displayAllStudents(StudentList *list);
@@ -52,5 +60,8 @@ int saveToFile(StudentList *list, const char *filename);
 
 // 从文件加载
 int loadFromFile(StudentList *list, const char *filename);
+
+// 释放链表内存
+void freeStudentList(StudentList *list);
 
 #endif
